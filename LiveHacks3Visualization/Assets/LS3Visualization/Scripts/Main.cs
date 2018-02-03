@@ -16,6 +16,7 @@ public class Main : MonoBehaviour {
         ws.OnMessage += OnMessageHandler;
         ws.OnClose += OnCloseHandler;
 
+        Debug.Log("Connecting to websocket");
         ws.ConnectAsync();        
     }
 

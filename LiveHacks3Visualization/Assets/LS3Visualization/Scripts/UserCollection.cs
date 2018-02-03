@@ -58,8 +58,8 @@ public class UserCollection: MonoBehaviour {
      }
 
      public Vector3 randomLocation() {
-         float x = UnityEngine.Random.Range(-5f, 5f);
-         float y = UnityEngine.Random.Range(-3f, 3f);
+         float x = UnityEngine.Random.Range(-6f, 6f);
+         float y = UnityEngine.Random.Range(-3f, 5f);
          return new Vector3(x, y, 0);
      }
 }

@@ -85,25 +85,35 @@ public class UserVisual: MonoBehaviour {
         {
             colorName = value;
             Color color;
+            if (colorName == "Red") {
+                color = new Color(190, 22, 33);
+            } 
+            else 
             if (colorName == "Yellow") {
                 color = new Color(255, 237, 0);
-            } else if (colorName == "Red") {
-                color = new Color(190, 22, 33);
-            } else if (colorName == "Cyan") {
+            } 
+            else 
+            if (colorName == "Cyan") {
                 color = new Color(54, 169, 224);
-            } else if (colorName == "Purple-Blue") {
+            } 
+            else 
+            if (colorName == "Purple-Blue") {
                 color = new Color(39, 52, 138);
-            } else {
+            } 
+            else 
+            {
                 Debug.Log("Unknown colorName " + colorName);
                 return;
             }
             Debug.Log("Setting named color " + colorName + " " + color);
             MeshRenderer renderer = visual.GetComponent<MeshRenderer>();
-            Color oldColor = renderer.material.color;
+            //Color oldColor = renderer.material.color;
             Material newMaterial = new Material(renderer.material);
-            newMaterial.color = oldColor;
+            newMaterial.color = color;
             renderer.material = newMaterial;
-            DOTween.To(()=> newMaterial.color, x=> newMaterial.color = x, color, 0.5f);
+            //newMaterial.color = oldColor;
+            //renderer.material = newMaterial;
+            //DOTween.To(()=> newMaterial.color, x=> newMaterial.color = x, color, 0.5f);
         }
     }
 
@@ -133,8 +143,10 @@ public class UserVisual: MonoBehaviour {
 			//rb.AddForce (new Vector3(velocity.x, velocity.y, 0));
 
             Vector3 position = basePosition;
-            position.x = Mathf.Clamp(position.x + velocity.x * -0.5f, position.x - 1f, position.x + 1f);
-            position.y = Mathf.Clamp(position.y + velocity.y * -0.5f, position.y - 1f, position.y + 1f);
+            position.x = position.x - velocity.x;
+            position.y = position.y - velocity.y;
+            //position.x = Mathf.Clamp(position.x + velocity.x * -0.5f, position.x - 1f, position.x + 1f);
+            //position.y = Mathf.Clamp(position.y + velocity.y * -0.5f, position.y - 1f, position.y + 1f);
             transform.position = position;
         }
     }

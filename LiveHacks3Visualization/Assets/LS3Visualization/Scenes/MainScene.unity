@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53541d77655de8840ac12e47ebf101e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wavelength: 1
-  DistortionStrength: 0.25
+  Wavelength: 0.26
+  DistortionStrength: 3.48
   Sparkling: 0
   SaturationBase: 1
   SaturationSpeed: 1
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 895549812}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8b7ba25044e2413aa12afc7398a1701, type: 3}
   m_Name: 
