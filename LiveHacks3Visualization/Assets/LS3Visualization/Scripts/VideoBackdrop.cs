@@ -7,6 +7,7 @@ public class VideoBackdrop : MonoBehaviour
 
     void Start()
     {
+		Debug.Log("video object starting");
         // Will attach a VideoPlayer to the main camera.
         GameObject camera = GameObject.Find("Main Camera");
 

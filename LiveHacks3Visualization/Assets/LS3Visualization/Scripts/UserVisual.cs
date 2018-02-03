@@ -130,8 +130,8 @@ public class UserVisual: MonoBehaviour {
         {
             velocity = value;
             Vector3 position = basePosition;
-            position.x += velocity.x * -0.5f;
-            position.y += velocity.y * -0.5f;
+            position.x = Mathf.Clamp(position.x + velocity.x * -0.5f, position.x - 1f, position.x + 1f);
+            position.y = Mathf.Clamp(position.y + velocity.y * -0.5f, position.y - 1f, position.y + 1f);
             transform.position = position;
         }
     }
