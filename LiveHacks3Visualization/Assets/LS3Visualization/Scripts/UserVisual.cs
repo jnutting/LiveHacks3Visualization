@@ -91,13 +91,18 @@ public class UserVisual: MonoBehaviour {
             } else if (colorName == "Cyan") {
                 color = new Color(54, 169, 224);
             } else if (colorName == "Purple-Blue") {
-                color = new Color(54, 169, 224);
-            }
-            else {
+                color = new Color(39, 52, 138);
+            } else {
                 Debug.Log("Unknown colorName " + colorName);
                 return;
             }
-            DOTween.To(()=> nameMesh.color, x=> nameMesh.color = x, color, 0.5f);
+            Debug.Log("Setting named color " + colorName + " " + color);
+            MeshRenderer renderer = visual.GetComponent<MeshRenderer>();
+            Color oldColor = renderer.material.color;
+            Material newMaterial = new Material(renderer.material);
+            newMaterial.color = oldColor;
+            renderer.material = newMaterial;
+            DOTween.To(()=> newMaterial.color, x=> newMaterial.color = x, color, 0.5f);
         }
     }
 
@@ -124,10 +129,10 @@ public class UserVisual: MonoBehaviour {
         set
         {
             velocity = value;
-            //Vector3 position = basePosition;
-            //position.x += velocity.x;
-            //position.y += velocity.y;
-            visual.localPosition = new Vector3(-0.5f * velocity.x, -0.5f * velocity.y, 0);
+            Vector3 position = basePosition;
+            position.x += velocity.x * -0.5f;
+            position.y += velocity.y * -0.5f;
+            transform.position = position;
         }
     }
 }

@@ -113,7 +113,7 @@ public class UserCollection: MonoBehaviour {
         set
         {
             name = value;
-            userVisual.name = name;
+            userVisual.Name = name;
         }
     }
 
