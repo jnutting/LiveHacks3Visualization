@@ -66,16 +66,17 @@ public class Main : MonoBehaviour {
                 Debug.Log("Failed to unpack Name");
                 return;
             }
-            //Debug.Log("unpacked Tick");
+            Debug.Log("unpacked Name " + wrapper.msg.name);
             userCollection.HandleName(wrapper.msg);
         }
         else if (umw.msg.type == "namedColor") {
+            Debug.Log("parsing color name from this: " + json);
             NamedColorMessageWrapper wrapper = JsonUtility.FromJson<NamedColorMessageWrapper>(json);
             if (wrapper == null) { 
                 Debug.Log("Failed to unpack NamedColor");
                 return;
             }
-            //Debug.Log("unpacked Tick");
+            Debug.Log("unpacked NamedColor " + wrapper.msg.colorName);
             userCollection.HandleNamedColor(wrapper.msg);
         } else {
             Debug.Log("Unknown event type " + umw.msg.type);
