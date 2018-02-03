@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userCollection: {fileID: 946476227}
-  timeToKill: 1
+  timeToKill: 0.5
 --- !u!1 &949733021
 GameObject:
   m_ObjectHideFlags: 0

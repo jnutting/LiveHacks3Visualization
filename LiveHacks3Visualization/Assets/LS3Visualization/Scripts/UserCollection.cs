@@ -14,7 +14,7 @@ public class UserCollection: MonoBehaviour {
         User user = userForUUID(tick.uuid);
         user.Upness = tick.upness;
         user.Velocity = tick.velocity;
-		user.lastTickTime = Time.deltaTime;
+		user.lastTickTime = Time.time;
      }
 
      public void HandleName(Name name) {

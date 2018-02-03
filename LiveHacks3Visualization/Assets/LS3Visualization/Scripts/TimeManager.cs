@@ -5,7 +5,7 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour {
 
 	public UserCollection userCollection;
-	public float timeToKill = 1f;
+	public float timeToKill = 0.5f;
 
 	private float lastCheckTime;
 
@@ -20,7 +20,7 @@ public class TimeManager : MonoBehaviour {
 
 		if (Time.time - lastCheckTime >= timeToKill) {
 			lastCheckTime = Time.time;
-			Debug.Log ("Time to check active users!");
+			//Debug.Log ("Time to check active users!");
 			foreach(string key in allUsers.Keys) {
 				User user = allUsers[key];
 				if (Time.time - user.lastTickTime >= timeToKill) {
