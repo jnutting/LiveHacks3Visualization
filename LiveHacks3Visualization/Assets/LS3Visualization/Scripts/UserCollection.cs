@@ -8,13 +8,13 @@ public class UserCollection: MonoBehaviour {
 
     public GameObject userVisualPrefab;
 
-
      public void HandleTick(Tick tick) {
         //Debug.Log("Got tick " + tick);
 
         User user = userForUUID(tick.uuid);
         user.Upness = tick.upness;
         user.Velocity = tick.velocity;
+		user.lastTickTime = Time.deltaTime;
      }
 
      public void HandleName(Name name) {
@@ -35,20 +35,21 @@ public class UserCollection: MonoBehaviour {
 
      private User userForUUID(string uuid) {
          User user = null;
-         if (allUsers.TryGetValue(uuid, out user)) {
+		if (allUsers.TryGetValue(uuid, out user)) { // Activate user again if they have logged in before
             //Debug.Log("found user " + user);
          } else {
             //Debug.Log("found no user.");
          }
-         if (user == null) {
+         if (user == null) {	// NEW USER
              user = new User();
              user.uuid = uuid;
              allUsers[uuid] = user;
              Vector3 position = randomLocation();
-             user.userVisual = Instantiate(userVisualPrefab, position, new Quaternion()).GetComponent<UserVisual>();
+             user.userVisObj = Instantiate(userVisualPrefab, position, new Quaternion());
+			 user.userVisual = user.userVisObj.GetComponent<UserVisual> ();
              user.userVisual.Name = uuid;
              user.userVisual.BasePosition = position;
-             Debug.Log("Created new user " + user.uuid); 
+             Debug.Log("Created new user " + user.uuid);
          }
          else {
              //Debug.Log("Using existing user");
@@ -68,6 +69,9 @@ public class UserCollection: MonoBehaviour {
     private string name;
     private string colorName;
     private float upness;
+
+    public float lastTickTime = 0f;
+	public GameObject userVisObj;
     public UserVisual userVisual;
 
     private DeviceVelocity velocity;
