@@ -5,6 +5,7 @@ public class UserVisual: MonoBehaviour {
 
     public TextMesh nameMesh;
     public Transform visual;
+	public Rigidbody rb;
 
     private float upness;
 
@@ -129,6 +130,8 @@ public class UserVisual: MonoBehaviour {
         set
         {
             velocity = value;
+			//rb.AddForce (new Vector3(velocity.x, velocity.y, 0));
+
             Vector3 position = basePosition;
             position.x = Mathf.Clamp(position.x + velocity.x * -0.5f, position.x - 1f, position.x + 1f);
             position.y = Mathf.Clamp(position.y + velocity.y * -0.5f, position.y - 1f, position.y + 1f);

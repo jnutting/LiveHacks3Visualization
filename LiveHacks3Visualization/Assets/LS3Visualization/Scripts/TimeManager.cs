@@ -30,5 +30,13 @@ public class TimeManager : MonoBehaviour {
 				}
 			}
 		}
+			
+		foreach(string key in allUsers.Keys) {
+			User user = allUsers[key];
+			Vector3 viewPos = Camera.main.WorldToViewportPoint (user.userVisObj.transform.position);
+			viewPos.x = Mathf.Clamp01 (viewPos.x);
+			viewPos.y = Mathf.Clamp01 (viewPos.y);
+			user.userVisObj.transform.position = Camera.main.ViewportToWorldPoint (viewPos);
+		}
 	}
 }
