@@ -28,7 +28,7 @@ public class VideoBackdrop : MonoBehaviour
 
         // Set the video to play. URL supports local absolute or relative paths.
         // Here, using absolute.
-        videoPlayer.url = "/Users/jack/Downloads/Drone Speed Test-web.m4v.mov";
+        videoPlayer.url = "/Users/jack/play/shakeitlikeitshot/introduction2.mov";
 
         // Skip the first 100 frames.
         //videoPlayer.frame = 100;
@@ -56,12 +56,27 @@ public class VideoBackdrop : MonoBehaviour
 			videoPlayer.enabled = false;
 		}
 		else if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			videoPlayer.url = "/Users/jack/Downloads/jittery_particles.mov";
+			videoPlayer.url = "/Users/jack/play/shakeitlikeitshot/introduction2.mov";
 			videoPlayer.enabled = true;
 			videoPlayer.Play();
 		}
 		else if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			videoPlayer.url = "/Users/jack/Downloads/Drone Speed Test-web.m4v.mov";
+			videoPlayer.url = "/Users/jack/play/shakeitlikeitshot/perspective.mp4";
+			videoPlayer.enabled = true;
+			videoPlayer.Play();
+		}
+		else if (Input.GetKeyDown(KeyCode.Alpha3)) {
+			videoPlayer.url = "/Users/jack/play/shakeitlikeitshot/perspective2.mp4";
+			videoPlayer.enabled = true;
+			videoPlayer.Play();
+		}
+		else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+			videoPlayer.url = "/Users/jack/play/shakeitlikeitshot/perspective4.mp4";
+			videoPlayer.enabled = true;
+			videoPlayer.Play();
+		}
+		else if (Input.GetKeyDown(KeyCode.Alpha5)) {
+			videoPlayer.url = "/Users/jack/play/shakeitlikeitshot/phogg2.mov";
 			videoPlayer.enabled = true;
 			videoPlayer.Play();
 		}
